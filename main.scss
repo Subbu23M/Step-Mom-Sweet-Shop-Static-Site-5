@@ -1,0 +1,562 @@
+// Universal Affects
+body{
+    font-family: 'Piazzolla', serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+button{
+    font-family: 'Piazzolla', serif;
+}
+
+button:focus{
+    outline: none;
+}
+
+li{
+    list-style: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.pre-loader{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: visible;
+
+    /* z-index:stacks one on each other based on value  */
+    z-index: 999;
+
+    background-color: white;
+
+    // Convert row into column
+    display: grid;
+
+    // On X-axis
+    justify-content: center;
+
+    // On Y-axis
+    align-items: center;
+}
+
+.hidePreLoader{
+    visibility: hidden;
+
+    /* z-index:stacks one on each other based on value  */
+    z-index: -999;
+}
+
+// Styles for navbar
+nav{
+    ul{
+        background-color: chocolate;
+
+        // On Y-axis
+        height: 70px;
+
+        line-height: 60px;
+        text-align: center;
+
+        li{
+            // For inline-block we can add top right margin padding.
+            //It does not move to next line. 
+            display: inline-block;
+
+            width: 65px;
+
+            a{
+                // Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width.
+                display: block;
+
+                color: cornsilk;
+                font-size: 1.4rem;
+
+                // transition:property Duration
+                // transition-timing-function:linear - specifies a transition effect with the same speed from start to end.
+                transition: transfrom 4s linear;
+            }
+        }
+        li a:hover{
+            transform: translateY(-20px);
+            color: darkcyan;
+
+            // border-left:size style color
+            border-left: 2px solid greenyellow;
+        }
+    }
+}
+
+#banner{
+    background: url(./Banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    // If we use cover; it will cut off the sides of the image, preserving the aspect ratio, and also filling in the space.
+    background-size: cover;
+
+    // Parallax Effects
+    background-attachment: fixed;
+
+    margin-top: -1rem;
+
+    .height{
+        min-height: 100vh;
+    }
+
+    .text{
+        // border-top:size style color
+        border-top: 8px dotted teal;
+
+        // border-bottom:size style color
+        border-bottom: 8px dotted teal;
+    }
+}
+
+#about{
+    .images-container{
+        /* position: relative, it’ll remain “in the flow” of the layout but you can move it around! */
+        position: relative;
+    }
+
+    .about-image{
+        /* position: absolute takes elements “out of flow” so its grid space gets collapsed. */
+        position: absolute;
+
+        width: 150px;
+
+        // The opacity-level describes the transparency-level.
+        opacity: 0.9;
+
+        // transition duration
+        // transition-timing-function :ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+        transition: all 2s ease;
+    }
+
+    .about-image:hover{
+        transform: scale(1.2);
+        transform: rotate(20deg);
+
+        // outline:size type color
+        outline: 7px solid #191716;
+
+        // The outline-offset property adds space between an outline and the edge or border of an element.
+        // The space between an element and its outline is transparent
+        outline-offset: 0.8rem;
+
+        // The opacity-level describes the transparency-level.
+        opacity: 1;
+
+        /* z-index:stacks one on each other based on value  */
+        z-index:40;
+    }
+
+    // Effects for the images
+
+    .image-1{
+        // Default position
+        left: 0%;
+        top: 0%;
+    }
+
+    .image-2{
+        left: 120px;
+        top: 90px;
+
+        /* z-index:stacks one on each other based on value  */
+        z-index: 10;
+    }
+
+    .image-3{
+        left: 240px;
+        top: 150px;
+
+        /* z-index:stacks one on each other based on value  */
+        z-index: 30;
+    }
+
+    .image-4{
+        left: 240px;
+        top: -2px;
+
+        /* z-index:stacks one on each other based on value  */
+        z-index: 25;
+    }
+
+    .image-5{
+        left: -3px;
+        top: 150px;
+
+        /* z-index:stacks one on each other based on value  */
+        z-index: 9;
+    }
+}
+
+#categories{
+    min-height: 100vh;
+
+    background: url(./Banner-2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    // If we use cover; it will cut off the sides of the image, preserving the aspect ratio, and also filling in the space.
+    background-size: cover;
+
+    // Parallax Effects
+    background-attachment: fixed;
+
+    padding-top: 20px;
+    padding-bottom: 80px;
+
+    .underline{
+        width: 130px;
+        height: 0.3rem;
+    }
+
+    .products-container{
+        max-width: 90vw;
+        color: lightcoral!important;
+
+        .product-item{
+            /* position: relative, it’ll remain “in the flow” of the layout but you can move it around! */
+            position: relative;
+
+            overflow: hidden;
+            padding:60px;
+
+            .front-text{
+                text-align: center;
+
+                // transition: property duration 
+                transition: transform 2s;
+            }
+
+            .back-text{
+                /* position: absolute takes elements “out of flow” so its grid space gets collapsed. */
+                position: absolute;
+                
+                bottom: -15em;
+                width: 75%;
+                margin: 0 auto;
+
+                // padding: top & bottom left & right
+                padding: 60px 0px;
+
+                // transition: property duration
+                transition: bottom 2s;
+
+                height: 125%;
+            }
+        }
+
+        .product-item:hover{
+            .front-text{
+                transform: translateY(-130px);
+            }
+            .back-text{
+                bottom:0;
+            }
+        }
+
+        .product-item-black{
+            background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+        }
+
+        .product-item-white{
+            background: linear-gradient(whitesmoke,whitesmoke);
+            color: #191716;
+        }
+
+    }
+}
+
+// Media Queries
+@media screen and (min-width:992px){
+    #categories{
+        // For the parent
+        .products-container{
+            // Convert row into column
+            display: grid;
+
+            grid-template-columns: repeat(2,1fr); 
+            
+            column-gap: 1rem;
+        }
+
+        .product-item:nth-of-type(1){
+            order: 1;
+        }
+
+        .product-item:nth-of-type(2){
+            order: 2;
+        }
+
+        .product-item:nth-of-type(3){
+            order: 4;
+        }
+
+        .product-item:nth-of-type(4){
+            order: 3;
+        }
+
+        .product-item:nth-of-type(5){
+            order: 5;
+        }
+
+        .product-item:nth-of-type(6){
+            order: 6;
+        }
+    }
+}
+
+#types {
+    .underline-thre {
+        width: 120px;
+        height: .4rem;
+    }
+
+    padding-top: 20px;
+    padding-bottom: 80px;
+
+    .specials-container{
+        max-width: 90vw;
+
+        .special-container{
+            /* position: relative, it’ll remain “in the flow” of the layout but you can move it around! */
+            position: relative;
+
+            overflow: hidden;
+
+            // Default:Top to Bottom
+            background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8));
+
+            color: whitesmoke;
+
+            img{
+                min-height: 100%;
+                width: 100%;
+
+                // Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width.
+                display: block;
+
+                // transition:property duration
+                transition: transform 2s;
+            }
+            .image-text{
+                /* position: absolute takes elements “out of flow” so its grid space gets collapsed. */
+                position: absolute;
+
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                text-align: center;
+
+                // transition:property duration
+                transition: opacity 2s;
+
+                // The opacity-level describes the transparency-level.
+                opacity: 0;
+
+                color: cornflowerblue;
+            }
+            .footer-text{
+                /* position: absolute takes elements “out of flow” so its grid space gets collapsed. */
+                position: absolute;
+
+                left: 0;
+                bottom: 0;
+
+                // Convert column into row
+                display: flex;
+
+                // On X-axis
+                justify-content: space-between;
+
+                width: 100%;
+
+                // transition:property duration
+                transition: opacity 2s;
+
+                // The opacity-level describes the transparency-level.
+                opacity: 0;
+            }
+        }
+        .special-container:hover{
+            img{
+                transform: scale(1.2);
+            }
+            .image-text,.footer-text{
+                // The opacity-level describes the transparency-level.
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// Media Queries
+@media screen and (min-width:576px){
+    #types{
+        .specials-container{
+
+            // Convert row into column
+            display: grid;
+            
+            grid-template-columns: repeat(2,1fr);
+            column-gap: 1em;
+        }
+    }
+}
+
+// Media Queries
+@media screen and (min-width:992px){
+    #types{
+        .specials-container{
+
+            // Convert row into column
+            display: grid;
+
+            grid-template-columns: repeat(3,1fr);
+            column-gap: 1em;
+        }
+    }
+}
+
+#posts{
+    .underline{
+        width: 120px;
+        height: .3rem;
+    }
+
+    .card{
+        /* position: relative, it’ll remain “in the flow” of the layout but you can move it around! */
+        position: relative;
+
+        // Default Value:Top to Bottom
+        background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+
+        .fa-pizza-slice{
+            /* position: absolute takes elements “out of flow” so its grid space gets collapsed. */
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+
+            // transition:property duration
+            transition: opacity 2s;
+
+            // The opacity-level describes the transparency-level.
+            opacity: 0;
+        }
+    }
+    .card:hover{
+        
+        img{
+            // The opacity-level describes the transparency-level.
+            opacity: 0.4;
+        }
+        .fa-pizza-slice{
+            // The opacity-level describes the transparency-level.
+            opacity: 1;
+        } 
+    }
+}
+
+#gallery{
+    .underline-three{
+        width: 120px;
+        height: .4rem;
+    }
+
+    .gallery-item{
+        /* position: relative, it’ll remain “in the flow” of the layout but you can move it around! */
+        position: relative;
+
+        overflow: hidden;
+
+        // Default Value:Top to Bottom
+        background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+
+        // transition Duration
+        // transition-timing-function:ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+        transition: all 4s ease;
+
+        .item-gallery{
+            // transition Duration
+            // transition-timing-function:ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+            transition: all 4s ease;
+        }
+        .menu-link{
+            /* position: absolute takes elements “out of flow” so its grid space gets collapsed. */
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            color: #D3325F!important;
+
+            // border:size style color
+            border-top: 2px solid #D3325F;
+            border-bottom: 2px solid #D3325F;
+
+            // transition Duration
+            // transition-timing-function:ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+            transition: all 2s ease;
+
+            // The opacity-level describes the transparency-level.
+            opacity: 0;
+        }
+        .menu-link:hover{
+            color: darkcyan!important;
+
+            // border:size style color
+            border: 3px solid lightgreen!important;
+
+            background-color: lightyellow;
+        }
+    }
+    .gallery-item:hover{
+        // outline:size type color
+        outline: 10px solid maroon;
+
+        // The outline-offset property adds space between an outline and the edge or border of an element.
+        // The space between an element and its outline is transparent
+        outline-offset: 0.8rem;
+        
+        .item-gallery{
+            transform: scale(1.2);
+
+            // The opacity-level describes the transparency-level.
+            opacity: 0.4;
+        }
+        .menu-link{
+            // The opacity-level describes the transparency-level.
+            opacity: 1;
+        }
+    }
+}
+
+#contact{
+    .underline-two{
+        width: 100px;
+        height: .4rem;
+    }
+}
+
+footer{
+    .footer-icons{
+        display: flex;
+        justify-content: space-around;
+    }
+}
